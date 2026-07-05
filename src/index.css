@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-elvar-bg text-elvar-cream font-body antialiased;
+    font-size: 15px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-elvar-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-elvar-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-elvar-muted;
+  }
+
+  ::selection {
+    @apply bg-elvar-gold text-elvar-bg;
+  }
+}
+
+@layer components {
+  .elvar-btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-elvar-gold text-elvar-gold
+           font-body font-medium tracking-widest text-xs uppercase
+           transition-all duration-300 cursor-pointer select-none;
+  }
+  .elvar-btn:hover {
+    @apply bg-elvar-gold text-elvar-bg;
+  }
+  .elvar-btn:disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+
+  .elvar-btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-elvar-border
+           text-elvar-muted font-body font-medium tracking-widest text-xs uppercase
+           transition-all duration-300 cursor-pointer select-none;
+  }
+  .elvar-btn-ghost:hover {
+    @apply border-elvar-cream text-elvar-cream;
+  }
+
+  .elvar-input {
+    @apply w-full bg-transparent border-b border-elvar-border text-elvar-cream
+           font-body text-sm py-3 px-0 outline-none placeholder-elvar-muted
+           transition-colors duration-200;
+  }
+  .elvar-input:focus {
+    @apply border-elvar-gold;
+  }
+
+  .elvar-label {
+    @apply block text-xs font-body font-medium tracking-widest2 uppercase text-elvar-muted mb-2;
+  }
+
+  .elvar-card {
+    @apply bg-elvar-card border border-elvar-border;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-light text-elvar-cream;
+  }
+
+  .gold-line {
+    @apply w-12 h-px bg-elvar-gold;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 40px rgba(196, 165, 90, 0.3);
+  }
+}
+
+@keyframes ev-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ev-slide-in {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
